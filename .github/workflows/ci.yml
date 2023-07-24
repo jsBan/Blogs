@@ -16,13 +16,13 @@ jobs:
       # 拉代码
       - name: Checkout code
         uses: actions/checkout@v1
-      # 下载node，我这里指定了15.x，这个版本可随意，高于dumi规定的node版本即可
+      # 下载node，我这里指定了15.x，这个版本可随意，高于 dumi 规定的node版本即可
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 15.x
       # 打包代码
-      - name: Build Project
+      - name: Build
         run: |
           npm install      
           npm run build
@@ -31,4 +31,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           branch: build # 打包的内容放到build分支下
-          folder: build # 你打包后存放的文件
+          folder: dist # 你打包后存放的文件
